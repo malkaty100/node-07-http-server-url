@@ -7,5 +7,14 @@
 // Run: node ex9.js   (test it with the browser and Postman / Thunder Client)
 
 const http = require("http");
+const server = http.createServer((req, res) => {
+    if(req.method==="GET"&&req.url==="/hello")
+      res.end("Hello from GET")
+    else if(req.method==="POST"&&req.url==="/hello")
+      res.end("Hello from POST")
+    else 
+        res.end("Not supported")
+});
 
+server.listen(3000);
 // write your code here

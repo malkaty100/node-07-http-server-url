@@ -9,5 +9,12 @@
 // Run: node ex8.js   (test it with Postman / Thunder Client)
 
 const http = require("http");
+const server = http.createServer((req, res) => {
+  if(req.method==='POST'&&req.headers['content-type'] === 'application/json')    
+    res.end("JSON accepted")
+else 
+    res.end("Unsupported request")
+});
 
+server.listen(3000);
 // write your code here
